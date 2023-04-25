@@ -4,15 +4,14 @@ import whisper
 #TODO GPUを使用するようにする
 #TODO printでなくtxtファイルとして出力する
 #TODO 出力ファイルを、元ファイルの名前に応じたものにする
-#TODO ファイル名をコード内でなく、プロンプトとして受け取る
 #TODO (未定)GUI化する
 
 def main():
-
+    audio_file_name = input('ファイル名を入力してください').replace('\"', '')
     #tiny, base, small, medium, largeの5つのモデルが用意されている
-    model = whisper.load_model("medium")
-    result = model.transcribe(r"output.wav")
+    model = whisper.load_model("large")
+    result = model.transcribe(audio_file_name)
     print(result["text"])
-
+    
 
 main()
